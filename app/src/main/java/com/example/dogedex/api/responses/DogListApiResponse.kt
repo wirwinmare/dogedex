@@ -1,4 +1,4 @@
-package com.example.dogedex.api
+package com.example.dogedex.api.responses
 
 import com.squareup.moshi.Json
 

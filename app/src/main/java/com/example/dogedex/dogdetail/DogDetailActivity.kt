@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import coil.load
 import com.example.dogedex.Dog
 import com.example.dogedex.R
 import com.example.dogedex.databinding.ActivityDogDetailBinding
@@ -35,6 +36,11 @@ class DogDetailActivity : AppCompatActivity() {
         binding.dogIndex.text = getString(R.string.dog_index_format, dog.index)
         binding.lifeExpectancy.text = getString(R.string.dog_life_expectancy_format, dog.lifeExpectancy)
         binding.dog = dog
-
+        binding.dogImage.load(dog.imageUrl) {
+            placeholder(R.drawable.ic_hearth_white)
+        }
+        binding.closeButton.setOnClickListener{
+            finish()
+        }
     }
 }

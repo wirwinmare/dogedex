@@ -1,8 +1,8 @@
 package com.example.dogedex.api
 
 import com.example.dogedex.BASE_URL
-import com.example.dogedex.Dog
 import com.example.dogedex.GET_ALL_DOGS_URL
+import com.example.dogedex.api.responses.DogListApiResponse
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
