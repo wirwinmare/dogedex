@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
-import com.example.dogedex.Dog
+import com.example.dogedex.model.Dog
 import com.example.dogedex.R
 import com.example.dogedex.databinding.ActivityDogDetailBinding
 
