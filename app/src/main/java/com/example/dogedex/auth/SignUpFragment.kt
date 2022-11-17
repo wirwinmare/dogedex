@@ -2,11 +2,11 @@ package com.example.dogedex.auth
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.dogedex.FormValidations
 import com.example.dogedex.R
 import com.example.dogedex.databinding.FragmentSignUpBinding
 
@@ -52,19 +52,19 @@ class SignUpFragment : Fragment() {
         binding.passwordInput.error = ""
         binding.confirmPasswordInput.error = ""
         val email = binding.emailEdit.text.toString()
-        if(!isValidEmail(email)) {
+        if (!FormValidations.isValidEmail(email)) {
             binding.emailInput.error = getString(R.string.email_is_not_valid)
             return
         }
 
-        val password  = binding.passwordEdit.text.toString()
-        if(password.isEmpty()) {
+        val password = binding.passwordEdit.text.toString()
+        if (password.isEmpty()) {
             binding.passwordInput.error = getString(R.string.password_must_not_be_empty)
             return
         }
 
-        val confirmPassword  = binding.confirmPasswordEdit.text.toString()
-        if(confirmPassword.isEmpty()) {
+        val confirmPassword = binding.confirmPasswordEdit.text.toString()
+        if (confirmPassword.isEmpty()) {
             binding.confirmPasswordEdit.error = getString(R.string.password_must_not_be_empty)
             return
         }
@@ -76,10 +76,5 @@ class SignUpFragment : Fragment() {
 
         signUpFragmentActions.onSigUpFieldsValidated(email, password, confirmPassword)
     }
-
-    private fun isValidEmail(email: String?): Boolean {
-        return !email.isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
-
 
 }

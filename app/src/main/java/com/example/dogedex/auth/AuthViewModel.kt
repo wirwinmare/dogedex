@@ -9,7 +9,7 @@ import com.example.dogedex.model.Dog
 import com.example.dogedex.model.User
 import kotlinx.coroutines.launch
 
-class AuthViewModel: ViewModel() {
+class AuthViewModel : ViewModel() {
 
     private val _user = MutableLiveData<User>()
     val user: LiveData<User>
@@ -22,11 +22,20 @@ class AuthViewModel: ViewModel() {
 
     private val authRepository = AuthRepository()
 
+    fun logIn(email: String, password: String) {
+        viewModelScope.launch {
+            _status.value = ApiResponseStatus.Loading()
+            handleResponseStatus(
+                authRepository.logIn(email, password)
+            )
+        }
+    }
+
     fun signUp(
         email: String,
         password: String,
         confirmPassword: String,
-    ){
+    ) {
         viewModelScope.launch {
             _status.value = ApiResponseStatus.Loading()
             handleResponseStatus(
